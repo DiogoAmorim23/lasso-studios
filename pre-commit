@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "Running selene..."
+selene src || { echo "selene falhou. Commit cancelado."; exit 1; }
+echo "Checking stylua..."
+stylua --check src || { echo "Corre 'stylua src' e tenta de novo."; exit 1; }
